@@ -29,6 +29,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
     'harrp.herokuapp.com',
+    'harrplatform.com',
 ]
 
 
