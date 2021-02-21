@@ -34,6 +34,9 @@ admin.site.register(User, CustomUserAdmin)
 
 class AttendingInline(admin.TabularInline):
     model = School.students.through
+    verbose_name=_("School")
+    verbose_name_plural=_("Schools Attended")
+    extra=1
 
 @admin.register(StudentProfile)
 class StudentProfileAdmin(admin.ModelAdmin):

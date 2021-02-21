@@ -46,6 +46,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'grappelli',
     'django.contrib.admin',
+    'nested_admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -60,7 +61,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'rest_framework_simplejwt',
     'harrp.apps.HarrpConfig',
-    'mailer'
+    'mailer',
+    'others',
+    'lessons'
 ]
 
 MIDDLEWARE = [
