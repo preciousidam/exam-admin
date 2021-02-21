@@ -45,7 +45,7 @@ class StudentProfile(models.Model):
         ordering = ['level']
 
     def __str__(self):
-        return f'User with email-{self.user.email} Profile'
+        return f'{self.user} Profile'
 
     def get_user(self):
         return f'{self.user.first_name} {self.user.last_name}'
