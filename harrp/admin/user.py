@@ -49,6 +49,6 @@ class StudentProfileAdmin(admin.ModelAdmin):
     )
 
     list_display = ['get_user','dob', 'gender', 'address', 'id_number', 'level',]
-    search_fields = ('user', 'id_number',)
+    search_fields = ('user__first_name', 'user__last_name', 'user__email', 'id_number', 'id_number')
     inlines = [AttendingInline]
     exclude=('students',)

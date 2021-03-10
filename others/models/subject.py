@@ -10,6 +10,9 @@ class Subject(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['title']
+
 
 class Topic(models.Model):
     title = models.CharField(_("Title"), max_length=50)
@@ -18,3 +21,6 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['title']

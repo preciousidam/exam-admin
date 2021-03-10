@@ -42,7 +42,7 @@ class StudentProfile(models.Model):
     guard_two_phone = models.CharField(_("Phone"), max_length=15, null=True, blank=True)
 
     class Meta:
-        ordering = ['level']
+        ordering = ['user__first_name', 'user__last_name', 'level']
 
     def __str__(self):
         return f'{self.user} Profile'
