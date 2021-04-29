@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 class Subject(models.Model):
     title = models.CharField(_("Title"), max_length=50)
     icon = models.ImageField(_("Icon"), upload_to='icons', null=True, blank=True)
-    level = models.OneToOneField(Level, verbose_name=_("Level"), null=True, blank=True, on_delete=models.SET_NULL, related_name="level")
+    level = models.ManyToManyField(Level, verbose_name=_("Level"), related_name="level")
 
     def __str__(self):
         return self.title

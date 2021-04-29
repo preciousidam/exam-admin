@@ -20,7 +20,7 @@ class Lesson(models.Model):
 
 
 class Paragraph(models.Model):
-    heading = models.CharField(_("Heading"), max_length=255)
+    heading = models.CharField(_("Heading"), max_length=255, null=True, blank=True)
     body = models.TextField(_("Body"))
     lesson = models.ForeignKey(Lesson, verbose_name=_("Lesson"), on_delete=models.CASCADE, related_name='paragraphs')
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)

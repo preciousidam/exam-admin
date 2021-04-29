@@ -1,6 +1,9 @@
 from rest_framework import serializers
 
 from lessons.models import Lesson, Paragraph, FeaturedImage
+from others.models import Subject, Topic
+
+
 
 class FeaturedImageSerializer(serializers.ModelSerializer):
     class Meta:

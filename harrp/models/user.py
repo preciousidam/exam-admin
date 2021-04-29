@@ -37,8 +37,8 @@ class StudentProfile(models.Model):
     level = models.CharField(_("Level"), max_length=50, choices=LEVEL)
     id_number = models.CharField(_("Identification"), max_length=50, null=True, blank=True, help_text="Matric no / Exam No/ Registration No")
     guard_one_email = models.EmailField(_("Email"), max_length=254)
-    guard_two_email = models.EmailField(_("Email"), max_length=254)
-    guard_one_phone = models.CharField(_("Phone"), max_length=15, null=True, blank=True)
+    guard_two_email = models.EmailField(_("Email"), max_length=254, null=True, blank=True)
+    guard_one_phone = models.CharField(_("Phone"), max_length=15)
     guard_two_phone = models.CharField(_("Phone"), max_length=15, null=True, blank=True)
 
     class Meta:
