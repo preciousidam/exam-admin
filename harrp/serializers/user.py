@@ -9,6 +9,7 @@ class SchoolSerializer(serializers.ModelSerializer):
 
 class StudentProfileSerializer(serializers.ModelSerializer):
     schools = SchoolSerializer(many=True, read_only=True)
+    level_name = serializers.CharField(read_only=True)
     class Meta:
         model=StudentProfile
         fields='__all__'

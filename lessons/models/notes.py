@@ -9,7 +9,6 @@ class Note(models.Model):
     title = models.CharField(_("Title"), max_length=255)
     body = models.TextField(_("Body"))
     topic = models.ForeignKey(Topic, verbose_name=_("Topic"), on_delete=models.SET_NULL, null=True, blank=True, related_name="%(class)s_notes")
-    lesson = models.ForeignKey(Lesson, verbose_name=_("Lesson"), on_delete=models.SET_NULL, null=True, blank=True, related_name="%(class)s_notes")
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
     last_modified = models.DateTimeField(_("Last Modified"), auto_now=True)
 
@@ -21,7 +20,7 @@ class Note(models.Model):
     
 
 class AdminNote(Note):
-
+    
     class Meta:
         verbose_name_plural = _("Admin Notes")
 

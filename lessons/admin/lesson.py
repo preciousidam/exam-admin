@@ -14,7 +14,7 @@ class FeaturedImageInline(nested_admin.NestedTabularInline):
     verbose_name=_("Image")
     
 
-class ParagraphInline(nested_admin.NestedStackedInline):
+class ParagraphInline(nested_admin.NestedTabularInline):
     model=Paragraph
     extra=1
     verbose_name_plural=_("Body")

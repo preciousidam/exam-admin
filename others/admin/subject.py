@@ -8,7 +8,7 @@ from others.models import Subject, Topic
 
 
 class TopicInlinAdmin(admin.TabularInline):
-    model=Topic.subject.through
+    model=Topic
     verbose_name=_("Topic")
     verbose_name_plural=_("Topics")
     extra=1
@@ -21,4 +21,4 @@ class SubjectAdmin(admin.ModelAdmin):
 
 @admin.register(Topic)
 class TopicAdmin(admin.ModelAdmin):
-    list_display = ['title',]
+    list_display = ['title', 'subject']

@@ -6,6 +6,7 @@ from datetime import date
 import time
 
 from harrp.constants import LEVEL, STATE, COUNTRY, GENDER
+from others.models import Level
 
 
 
@@ -20,7 +21,7 @@ class User(AbstractUser):
     phone = models.CharField(_("Phone"), max_length=15)
     verify_count = models.IntegerField(_("Count"), default=0, blank=False)
     verified = models.BooleanField(_("Verified"), default=False, help_text="Phone number verified?")
-    is_student = models.BooleanField(_("Student?"), help_text="Select is student user", null=True, default=False)
+    is_student = models.BooleanField(_("Student?"), help_text="Select is student user", null=True, default=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
@@ -34,7 +35,7 @@ class StudentProfile(models.Model):
     country = models.CharField(_("Country"), max_length=50, choices=COUNTRY)
     dob = models.DateField(_("Date Of Birth"))
     gender = models.CharField(_("Gender"), max_length=50, choices=GENDER)
-    level = models.CharField(_("Level"), max_length=50, choices=LEVEL)
+    level = models.ForeignKey(Level, verbose_name=_("Level"), on_delete=models.SET_NULL, null=True, blank=True, related_name="students")
     id_number = models.CharField(_("Identification"), max_length=50, null=True, blank=True, help_text="Matric no / Exam No/ Registration No")
     guard_one_email = models.EmailField(_("Email"), max_length=254)
     guard_two_email = models.EmailField(_("Email"), max_length=254, null=True, blank=True)
@@ -49,6 +50,10 @@ class StudentProfile(models.Model):
 
     def get_user(self):
         return f'{self.user.first_name} {self.user.last_name}'
+
+    @property
+    def level_name(self):
+        return self.level.title
 
     def get_absolute_url(self):
         return reverse("student_profile", kwargs={"id": self.id})

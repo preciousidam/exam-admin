@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'harrp.apps.HarrpConfig',
     'mailer',
     'others',
-    'lessons'
+    'lessons',
+    'exercises'
 ]
 
 MIDDLEWARE = [
@@ -204,10 +205,10 @@ CLOUDINARY_STORAGE = {
 MEDIA_URL = '/media/'  # or any prefix you choose
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-EMAIL_HOST_USER='test@prestone.com.ng'
-EMAIL_HOST_PASSWORD='Lilian01!@'
-DEFAULT_FROM_EMAIL='test@prestone.com.ng'
-EMAIL_HOST='mail.prestone.com.ng'
-EMAIL_PORT=26
+EMAIL_HOST_USER='preciousidam@gmail.com'
+EMAIL_HOST_PASSWORD='ebubechukwu'
+DEFAULT_FROM_EMAIL='preciousidam@gmail.com'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False

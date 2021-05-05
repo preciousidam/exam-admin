@@ -6,4 +6,4 @@ class LevelSerializer(serializers.ModelSerializer):
     class Meta:
         model=Level
         fields='__all__'
-        extra_kwargs={'subject': {'read_only': True}}
+        extra_kwargs={'subject': {'read_only': True}, 'level_name': {'read_only': True}}
