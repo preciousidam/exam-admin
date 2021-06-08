@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from .lesson import Lesson
 from others.models import Topic
-from harrp.models import StudentProfile
+from harrp.models import User
 
 class Note(models.Model):
     title = models.CharField(_("Title"), max_length=255)
@@ -25,8 +25,15 @@ class AdminNote(Note):
         verbose_name_plural = _("Admin Notes")
 
 class StudentNote(Note):
-    shared = models.ManyToManyField(StudentProfile, verbose_name=_("Shared With"), related_name="Note")
-    creator = models.ForeignKey(StudentProfile, verbose_name=_("Created By"), on_delete=models.CASCADE, related_name='notes')
+    VISIBILITY = [(0, 'Private'), (1, 'Share with Friends')]
+    visibility = models.CharField(_("Visibility"), max_length=50, choices=VISIBILITY, default=0)
+    shared = models.ManyToManyField(User, verbose_name=_("Shared With"), related_name="Note")
+    user = models.ForeignKey(User, verbose_name=_("Created By"), on_delete=models.CASCADE, related_name='notes', null=True)
 
     class Meta:
         verbose_name_plural = _("Student Notes")
+
+    @property
+    def shared_list(self):
+        emails = map(lambda user: user.email, self.shared.all())
+        return list(emails)

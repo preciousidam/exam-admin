@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/v1/', include('mailer.urls')),
     path('api/v1/', include('lessons.urls')),
     path('api/v1/', include('others.urls')),
+    path('api/v1/', include('subscription.urls')),
     path('admin/', admin.site.urls),
 ]
 
