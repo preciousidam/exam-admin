@@ -25,4 +25,4 @@ class ParagraphInline(nested_admin.NestedTabularInline):
 @admin.register(Lesson)
 class LessonAdmin(nested_admin.NestedModelAdmin):
     inlines=[ParagraphInline]
-    list_display=['title', 'subject', 'topic', 'created_at', 'last_modified']
+    list_display=['title', 'subject', 'topic', 'class_name', 'created_at', 'last_modified']
