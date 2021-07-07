@@ -187,8 +187,8 @@ REST_AUTH_SERIALIZERS = {
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'harrp-app'
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=365),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=366),
 }
 
 AUTH_USER_MODEL = 'harrp.User'
